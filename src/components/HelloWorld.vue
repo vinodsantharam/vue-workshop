@@ -3,7 +3,7 @@
   <div>
     {{msg}}
   </div>
-  <div>
+  <div v-if="msg.includes('can')">
     {{currentDate}}
   </div>
 </div>
