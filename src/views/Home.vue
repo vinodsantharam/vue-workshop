@@ -18,6 +18,9 @@ export default {
     return {
       homeMessage: 'Welcome to Your Vue.js App bla-bla-bla'
     }
+  },
+  mounted: function () {
+    this.homeMessage = 'Home is updated after mounted'
   }
 }
 </script>
