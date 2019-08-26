@@ -4,6 +4,7 @@
     <ul>
        <li v-for="item in jokes" :key="item.id" class="joke-text">
         {{ item.joke }}
+        <button v-on:click="like(item.id)">like</button>
         </li>
     </ul>
   </div>
@@ -26,6 +27,11 @@ export default {
   data: function () {
     return {
       currentDate: new Date()
+    }
+  },
+  methods: {
+    like: function (id) {
+      this.$emit('liked', id)
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <button v-on:click='updateJokes'>update jokes</button>
-    <HelloWorld v-bind:msg="homeMessage" v-bind:jokes="chucksJokes"/>
+    <HelloWorld v-bind:msg="homeMessage" v-bind:jokes="chucksJokes" v-on:liked="onJokeLiked"/>
   </div>
 </template>
 
@@ -33,6 +33,9 @@ export default {
           this.homeMessage = result.data.value[0].joke
           this.chucksJokes = result.data.value
         })
+    },
+    onJokeLiked: function (event) {
+      alert(event)
     }
   }
 }
