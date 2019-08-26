@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld v-bind:msg="homeMessage"/>
+    <HelloWorld v-bind:msg="homeMessage" v-bind:jokes="chucksJokes"/>
   </div>
 </template>
 
@@ -17,7 +17,8 @@ export default {
   },
   data: function () {
     return {
-      homeMessage: 'Welcome to Your Vue.js App bla-bla-bla'
+      homeMessage: 'Welcome to Your Vue.js App bla-bla-bla',
+      chucksJokes: []
     }
   },
   mounted: function () {
@@ -27,6 +28,7 @@ export default {
       .then(result => {
         console.log(result.data.value)
         this.homeMessage = result.data.value[0].joke
+        this.chucksJokes = result.data.value
       })
   }
 }

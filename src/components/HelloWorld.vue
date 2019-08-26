@@ -1,7 +1,11 @@
 <template>
 <div>
   <div>
-    {{msg}}
+    <ul>
+       <li v-for="item in jokes" :key="item.id">
+        {{ item.joke }}
+        </li>
+    </ul>
   </div>
   <div v-if="msg.includes('can')">
     {{currentDate}}
@@ -13,7 +17,11 @@
 export default {
   name: 'HelloWorld',
   props: {
-    msg: String
+    msg: String,
+    jokes: {
+      type: Array,
+      default: () => []
+    }
   },
   data: function () {
     return {
