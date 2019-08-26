@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
+    <button v-on:click='updateJokes'>update jokes</button>
     <HelloWorld v-bind:msg="homeMessage" v-bind:jokes="chucksJokes"/>
   </div>
 </template>
@@ -23,13 +24,16 @@ export default {
   },
   mounted: function () {
     this.homeMessage = 'Home is updated after mounted'
-
-    axios.get('http://api.icndb.com/jokes/random/5')
-      .then(result => {
-        console.log(result.data.value)
-        this.homeMessage = result.data.value[0].joke
-        this.chucksJokes = result.data.value
-      })
+  },
+  methods: {
+    updateJokes: function () {
+      axios.get('http://api.icndb.com/jokes/random/5')
+        .then(result => {
+          console.log(result.data.value)
+          this.homeMessage = result.data.value[0].joke
+          this.chucksJokes = result.data.value
+        })
+    }
   }
 }
 </script>
