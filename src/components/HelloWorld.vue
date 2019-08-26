@@ -2,7 +2,7 @@
 <div>
   <div>
     <ul>
-       <li v-for="item in jokes" :key="item.id">
+       <li v-for="item in jokes" :key="item.id" class="joke-text">
         {{ item.joke }}
         </li>
     </ul>
@@ -33,5 +33,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .joke-text {
+    text-align: left;
+    color: blue;
+    font-weight: 700;
+  }
 </style>
